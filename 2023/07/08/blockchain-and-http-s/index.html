@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>区块链和HTTP/S [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">区块链和HTTP/S</h1>
+<article class="post markdown-style">
+  <p>超文本传输协议（HTTP）及其加密扩展安全超文本传输协议（HTTPS），统称为HTTP&#x2F;S，是互联网协议（IP）套件中的应用层协议，是互联网的基础协议层。更准确地说，它是位于顶层应用层和基础协议层之间的链接层。</p>
+<p>HTTP&#x2F;S 是万维网数据通信的基础，其中超文本文档包括指向用户可以轻松访问的其他资源的超链接，例如通过单击鼠标或点击 Web 浏览器中的屏幕。</p>
+<p>HTTP&#x2F;S 使用 HTML（超文本标记语言）进行编程。HTML 的元素包括重要的类别，每个类别通过使用标签和 src 属性 (&#x3D; src” “) 来定义内容或媒体的类型。</p>
+<p>src 属性指定外部资源（例如文件）的通用资源位置 (URL)。它指示浏览器应在服务器上的何处查找要呈现给用户的内容（例如图像）。这可能是同一目录中的文件、同一服务器上其他位置的文件或存储在另一服务器上的文件。src 属性与以下 HTML 标记一起使用：<code>&lt;audio&gt;、&lt;embed&gt;、&lt;iframe&gt;、&lt;img&gt;、&lt;script&gt;、&lt;source&gt;、&lt;input&gt;</code>和<code>&lt;track&gt;</code>。</p>
+<p>本质上，互联网在 HTTP&#x2F;S 上运行，而 HTTP&#x2F;S 又在 TCP&#x2F;IP 上运行。</p>
+<h3 id="区块链与互联网"><a href="#区块链与互联网" class="headerlink" title="区块链与互联网"></a>区块链与互联网</h3><p>区块链可用于保护 HTTP&#x2F;S HTML 中使用的所有内容。任何文件都可以通过在区块链上存储文件的哈希值来保护，以便在使用文件时可以验证文件的真实性。</p>
+<p>然而，上述操作只是将区块链用作 HTTP&#x2F;S 的附加组件。</p>
+<p>或者，可以构建一个特殊的浏览器来访问比特币区块链上的数据，就好像区块链是某种特殊的“互联网”一样。但这用途有限，并且本质上将区块链与真正的互联网区分开来。从理论上讲，人们可以假设真正的互联网可以逐渐转移到区块链，但这不会很快发生，甚至根本不会发生。</p>
+<p>我们需要的是区块链与互联网更深层次的结合。</p>
+<p>最深层次的融合是区块链和TCP&#x2F;IP的融合，这是不同的、长期的发展目标。请参阅<a target="_blank" rel="noopener" href="https://zemgao.com/the-new-internet-blockchain/">新互联网和区块链</a>。</p>
+<p>但区块链与互联网在 HTTP&#x2F;S 层面的集成已经迫在眉睫。</p>
+<h3 id="区块链与HTTP-S的融合"><a href="#区块链与HTTP-S的融合" class="headerlink" title="区块链与HTTP&#x2F;S的融合"></a>区块链与HTTP&#x2F;S的融合</h3><p>首选集成不应更改 TCP&#x2F;IP 协议或浏览器。当前的互联网设备和网络浏览器应该按原样工作。</p>
+<p>一个例子：</p>
+<p>OrdFS 服务器：该项目提供了一个 ExpressJS 服务器，用于通过 BTC 和 BSV 上的 Ordinal 代币托管您的网站。</p>
+<p>OrdFS 服务器可以在DigitalOcean等云计算服务上实例化。请参阅<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b9ABr927ggw">此处的说明</a>。</p>
+<p>OrdFS 服务器是访问 BTC 和 BSV 区块链的网关。它允许您直接引用 HTML 铭文中的序数铭文。</p>
+<p>一旦 OrdFS 服务器运行，您可以通过在域 DNS 设置中创建 A 或 CNAME 记录将您的域指向该服务器。</p>
+<p>然后，您在域上设置一条 TXT 记录以指向序数：<br>TXT&#x3D;’ordfs&#x3D;inscriptionId’<br>hostname&#x3D;’_ordfs.myhostname.com’<br>其中 inscriptionId 在 BSV 上是 txid_vout，在 BTC 上是 {txid}i{vin}。</p>
+<p>请注意，创建 TXT 记录会创建指向序号描述的 HTML 链接，该链接现在用作域的主页。</p>
+<p>具体地，创建一个网页以具有HTML元素<code>&lt;iframe src=“OrdFS服务器上的序号铭文的URL”&gt;</code>来形成该链接。</p>
+<p>在地址栏中输入域名的浏览器首先由 DNS 名称服务器引导至 OrdFS 服务器，然后 OrdFS 服务器识别具有 Web 信息的区块链交易（例如序号 ID）。然后，OrdFS 服务器向比特币节点查询交易中包含的 Web 信息。OrdFS服务器收到比特币节点请求的网页信息后，从网页信息中解析出网页内容，并将其提供给浏览器。</p>
+<p>与传统网站一样，Web 内容包含在 Web 服务器信息中，包括所有 HTML 代码、CSS 样式表等。文件使用根目录和子目录进行组织，这些目录和子目录都以相互链接的递归序数记述。除了递归序数本身之外，结构上不需要任何新东西。</p>
+<h3 id="为什么这有用且重要？"><a href="#为什么这有用且重要？" class="headerlink" title="为什么这有用且重要？"></a>为什么这有用且重要？</h3><p>上述设置具有以下重要特征：</p>
+<p><strong>(1)</strong> 无需更改浏览器。</p>
+<p><strong>(2)</strong> 文件结构可以保持不变。它们可以进一步优化，但并非必须如此，只是为了使其发挥作用。</p>
+<p><strong>(3)</strong> 链接地址无需特殊格式。它们是根据内容自动生成的 Sha256 哈希值。哈希值的生成和验证是区块链的标准功能，不需要特殊实现。</p>
+<p><strong>(4)</strong> OrdFS 服务器虽然扮演着类似于传统 Web 服务器的角色，但不需要包含实际的 Web 内容，除了存储在链上或链接的代币中存储的 Web 内容的必要链接之外到区块链（对于有序代币，存储在链上）。因此，区块链本身实际上充当通用 Web 服务器，而 OrdFS 服务器则处理链接并充当区块链和传统 Web 浏览器之间的接口。</p>
+<p>上述特征（1）-（3）意味着如果人们想将网络迁移到区块链，采用并不存在很大的技术障碍。</p>
+<p>但问题是，为什么人们想要这样做？答案就在上面的（4）中。</p>
+<p>基于区块链的通用网络服务器具有巨大的影响。</p>
+<h3 id="区块链和-HTTP-S-集成的好处"><a href="#区块链和-HTTP-S-集成的好处" class="headerlink" title="区块链和 HTTP&#x2F;S 集成的好处"></a>区块链和 HTTP&#x2F;S 集成的好处</h3><p>整个全球数据可能会转向一种新的范式，这种范式更加安全、可靠、透明、高效，更重要的是，是创造驱动和所有权驱动的。这将开始解决当前互联网的一些根本腐败原因。</p>
+<p>一些好处包括：</p>
+<p><strong>(1)</strong> 引用的内容始终易于验证；</p>
+<p><strong>(2)</strong> 内容始终被保留（因为每条内容都是在区块链上独立管理和引用的，它们不太可能仅仅因为网站或托管服务集体死亡或消失而消失）；</p>
+<p><strong>(3)</strong> 存储在区块链上或引用区块链的文件可以重复使用，而无需创建许多副本和重复项，因为区块链作为通用服务器共同工作，保证了文件的不可变性和真实性；</p>
+<p><strong>(4)</strong> 内容颗粒度大、模块化，易于变现。</p>
+<p>当前的 Internet 和 Web 服务器不具备这些优势。例如，无论费用如何，传统的Web服务器根本无法做到上述（3）-（4）。传统的 Web 服务器必须包含每个网站的每个文件的单独副本。相比之下，用于链接区块链内容的 Web 服务器可能主要包含指向区块链上文件的链接。</p>
+<h3 id="比特币哈希Sha256的独特性"><a href="#比特币哈希Sha256的独特性" class="headerlink" title="比特币哈希Sha256的独特性"></a>比特币哈希Sha256的独特性</h3><p>重要的是要认识到，由于 Sha256 的冲突率极低，使用比特币哈希 Sha256 算法创建的哈希值保证是唯一的。这意味着不需要对基于比特币哈希的 URL 进行任何集中管理来避免地址冲突。它们根本不会在一百万年内发生。即使发生数学冲突（概率极低），冲突事件不仅在时间上而且在用户空间和事务上下文上彼此相距甚远，以至于它们没有机会真正发生冲突从实际意义上来说。</p>
+<p>此外，此类 URL 不仅在 BSV 区块链上是唯一的，无论创建它们的用户有多么多样化以及他们创建此类哈希的随机性和自由度如何，而且如果 URL 来自不同的区块链，则此类 URL 也将是唯一的。</p>
+<p>这意味着一种不同的互联网。</p>
+<h3 id="统一与并行"><a href="#统一与并行" class="headerlink" title="统一与并行"></a>统一与并行</h3><p>区块链和HTTP&#x2F;S的集成可以单独实现，也可以在区块链和TCP&#x2F;IP的集成之上实现。</p>
+<p>HTTP&#x2F;S 上的区块链集成为多个区块链提供了并行性和多元化的空间，无论是否存在 TCP&#x2F;IP 级别的统一区块链。</p>
+<p>如果 BSV 成为在基础互联网层与 TCP&#x2F;IP 集成的统一区块链，那么包括内容和价值转移（支付）在内的一切都可以在 BSV 区块链上处理。但这并不意味着人们如果愿意就不能使用其他区块链。</p>
+<p>原则上，内容源可以由任何区块链提供，只要构建了服务器并且区块链能够处理哈希并存储在区块链上的内容源的请求。区块链可以在其可扩展性允许的范围内使用，并且可以在其自己的利基市场中发挥其独特的作用，所有这些都与其他区块链并行。</p>
+<p>然而，为了在 TCP&#x2F;IP 层面统一互联网，整个新互联网必须依赖像 BSV 这样具有无限扩展性的公共区块链。将<a target="_blank" rel="noopener" href="https://zemgao.com/one-blockchain-as-the-base-layer-of-iov/">One 区块链视为 IoV 的基础层</a>。</p>
+<h3 id="不一定是序数词"><a href="#不一定是序数词" class="headerlink" title="不一定是序数词"></a>不一定是序数词</h3><p>目前，如上所述的基于区块链的网站只能通过在 BTC 或 BSV 上记为序数代币的内容来完成。但这只是因为：</p>
+<p><strong>(1)</strong> 递归序数能够在不同序数的铭文之间形成链接；和</p>
+<p><strong>(2)</strong> 有人专门为此类序数创建了一种称为 OrdFS 服务器的新型 Web 服务器，用于创建网页。</p>
+<p>值得注意的是，这种方法有效的关键原因是序数上的铭文是递归的，它引用了网站的每个部分，例如图标、index.html、CSS 和 JavaScript。标记化是组织和管理此类信息的首选方式。这样的应用首先发生在序数上并不奇怪。</p>
+<p>然而，原则上，没有什么可以阻止有人创建一个更通用的服务器，为任何在可扩展的 BSV 区块链上存储有不可变哈希的内容提供服务。</p>
+<p>因此，预计未来会出现有趣的新发展。</p>
+<h3 id="Ordinals-的大规模使用将验证-BSV-的威力和必要性"><a href="#Ordinals-的大规模使用将验证-BSV-的威力和必要性" class="headerlink" title="Ordinals 的大规模使用将验证 BSV 的威力和必要性"></a>Ordinals 的大规模使用将验证 BSV 的威力和必要性</h3><p>自 2023 年 1 月创建以来，序数在短时间内出现了爆炸性增长。过去六个月内已有超过 1000 万次铭文。</p>
+<p>对于模因代币来说，这听起来可能很多。但如果这些铭文被用来构建网络，那就没什么了。就算一天100万个铭文也不算什么。</p>
+<p>截至 2020 年，互联网上的数据量估计为 64 泽字节，约合 1 万亿千兆字节。到 2025 年，全球每天产生的数据量预计将达到 463EB。据估计，每天通过互联网传输的数据量超过 5 万亿GB（引用：<a target="_blank" rel="noopener" href="https://healthit.com.au/how-big-is-the-internet-and-how-do-we-measure-it/">互联网有多大，我们如何衡量它？</a>）。到2025年底，互联网上的数据总量可能约为100泽字节，即10^24字节。如果一个功能性网页链接平均包含 1 kB 的信息，那么我们总共需要 10^21 个网页链接。如果每天只有 100 万个铭文，则需要 3 万亿年才能创建所有这些链接，这还不包括网络未来的发展。</p>
+<p>每天100万次的铭文已经突破了BTC区块链的硬上限。</p>
+<p>此外，到那时，序数就已经接管了 BTC 区块链，并扼杀了 BTC 的数字黄金叙事，如果没有序数，BTC 就会发现自己在实际的“劳动力”市场中竞争，做真正的工作，这当然是它无法做到的。不是设计来做的。</p>
+<p>很明显，如果在做网络而不是模因方面有一丝严肃性，那么具有无限可扩展性的区块链是唯一的出路。</p>
+<p>网络序数与 BTC 完全矛盾。</p>
+<p>Ordinal 代币最初是在 BTC 上开发的，是为了利用 BTC 协议的漏洞。它立即获得了成功，也立即引起了争议。链上代币化数据铭文的想法以及任何一般的智能合约对于 BTC 来说都是陌生的，事实上被认为是对 BTC 叙述的畸变甚至威胁。</p>
+<p>但很快序数就在 BSV 区块链上找到了归宿，它具有无限的可扩展性，而且费用比 BTC 低数十万倍。</p>
+<p>在递归序数出现之前，序数代币没有任何效用，并且以纯粹的投机计划进行交易。但递归序数表明它们可能具有实用性，并且可能在未来得到更多发展。</p>
+<p>一旦这样做，序数将从 BTC 转移到 BSV，因为公用事业总是倾向于更好的可扩展性、更高的效率和更低的成本。</p>
+<p>不仅如此，序数可能最终揭示比特币的真相：比特币是一个神话，因为（而不是尽管）实用性的不存在而持续存在。一旦真正的实用性出现，它将展现BTC的真实本质，它的设计目的是保护数字黄金叙事和随后的二层服务业，而这本来是不必要的。这也展示了比特币的本质，它都是为了实用而设计的，从支付到代币化，再到与互联网的融合，从顶层应用层，到HTTP&#x2F;S链接层，一直到TCP&#x2F;IP基础层。</p>
+<hr>
+<center>本文转载自网络</center>
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2023/07/12/satoshi-or-not-here-he-comes/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2023/07/03/peter-schiff-on-coingeek-backstage-btc-will-crash-to-zero/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>

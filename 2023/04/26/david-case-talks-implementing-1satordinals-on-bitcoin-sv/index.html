@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>David谈到在BSV上实施1SatOrdinals [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">David谈到在BSV上实施1SatOrdinals</h1>
+<article class="post markdown-style">
+  <p>在区块高度 783968 ，BSV 社区开始创建 1 聪序数 (1SatOrdinals)，它们本质上是不可替代的代币 (NFT)，具有全球公认的序列号（铭文）。前 FYX Gaming 首席技术官 David Case 一直处于为 1SatOrdinals 构建基础设施的最前沿。我采访了他，问了一些关于协议、API 以及围绕新令牌协议的兴奋的问题。</p>
+<h3 id="为什么要在-BSV-上实施序数？"><a href="#为什么要在-BSV-上实施序数？" class="headerlink" title="为什么要在 BSV 上实施序数？"></a>为什么要在 BSV 上实施序数？</h3><p>尽管在 BSV 的基础上构建一直存在并且仍然存在一些挫折，但在研究如何构建可扩展的公共工作量证明 (PoW) 区块链解决方案时，它仍然是唯一的选择。中本聪知道他在做什么，而 BSV 是比特币的实施，它真正涵盖了以支持全人类所需的规模提供比特币的范围。</p>
+<p><strong>作为用 RUN 进行过最多实际开发的人，1SatOrdinals 与它相比如何？</strong></p>
+<p>1SatOrdinals 试图完成的事情远少于 RUN 所做的事情。 RUN 提供了一种方法来定义如何转换令牌状态的复杂规则。RUN jig 几乎可以应用您想要的任何状态更改规则。它通过将数据结构编码到每个事务中来实现。如果您了解编码，则可以重放一组事务来验证对象的状态历史。它使用基于 JavaScript 的虚拟机执行此操作，该虚拟机非常强大但很重，并且需要一个复杂的第 2 层索引器来理解存储在 jig 中的任何数据。</p>
+<p>另一方面，1SatOrdinals 要简单得多。您可以将数据写入现有的聪，并将该聪的所有权以与您可以转让任何其他比特币相同的方式转让给另一个人。它依赖于比特币的不变特性来允许更复杂的用例，但索引要求要简单得多。</p>
+<h3 id="你已经公开声明铭文编号是愚蠢的。你能详细说明一下吗？"><a href="#你已经公开声明铭文编号是愚蠢的。你能详细说明一下吗？" class="headerlink" title="你已经公开声明铭文编号是愚蠢的。你能详细说明一下吗？"></a>你已经公开声明铭文编号是愚蠢的。你能详细说明一下吗？</h3><p>序数的定义是，如果你追踪比特币链的时间回溯，你最终会找到你正在追踪的 satoshi 出现的点。该值是中本聪的序数。这是一个可证明的价值，可以针对每个中本聪单独计算，除了该中本聪记录的支出历史之外没有任何其他背景。</p>
+<p>另一方面，铭文编号是一个序号，表示当一个聪被铭记时与所有其他铭文存在的时间有关。这变得很难衡量，并且随着区块链的发展只会变得更加成问题。它需要对什么才算是有效铭文有一个准确而具体的定义。</p>
+<p>任何歧义都允许不同的索引器根据他们如何实现边缘情况的处理来确定不同的计数，并且不允许将来在不重新编号整个铭文集的情况下澄清这些规则的解释。修复索引错误会重新编号所有铭文。即使没有边缘情况和错误，它仍然依赖于在整个历史中对整个区块链进行索引，以验证铭文编号是否正确。</p>
+<p>如果需要根据 OG 程度对铭文进行排名，可以使用更好的衡量标准，它永远不会改变，那就是开采时的区块高度以及可以在该区块中找到交易的索引，这个值永远不会改变，无论规则是否被更新以包含之前被排除的交易，但它提供了顺序首先被记录的绝对顺序。</p>
+<h3 id="什么是-OrdinalLock？"><a href="#什么是-OrdinalLock？" class="headerlink" title="什么是 OrdinalLock？"></a>什么是 OrdinalLock？</h3><p>OrdinalLock 是我在 sCrypt 中编写的比特币脚本，用于允许在链上列出待售的 Ordinals。它深受 RelayX 编写的用于 RUN 令牌的 OrderLock 脚本的影响。</p>
+<p>一个序号从用户的钱包转移到一个 OrdinalLock 比特币脚本中。该脚本的构造允许以两种方式之一使用输出：</p>
+<p>将输出花费在向指定收件人支付指定数量的聪的交易中，从而完成销售。<br>最初列出项目的用户可以选择随时取消列出。</p>
+<p>使用这种方法，列表用户无需签字即可完成销售，但它也允许用户在任何时候取消销售，直到销售完成为止。</p>
+<p><strong>BTC在 Ordinals 的市场实施中利用 PSBT（部分签名的比特币交易） 。这些与直接在比特币脚本中实现的序号锁相比如何？</strong></p>
+<p>他们的成就非常相似，甚至完成方式也很相似。主要区别在于 OrdinalLock 是在  已广播到网络的最终比特币交易中创建的。这允许完全去中心化的交易，因为任何爬行区块链并发现此交易的人都拥有完成商品销售所需的一切。</p>
+<p>PSBT不同的是，挂牌交易和买入交易是同一笔交易，但在挂牌时，还不是有效的、最终确定的交易。交易不在链上广播，它需要一个链下层来发布这些清单，供其他人找到并执行销售。这导致市场库存可能分散，因为不同的市场可能使用不同的方式共享和聚合列表。</p>
+<p>实际上，我已经反复讨论过这些技术中哪种技术实际上更好，因为它们非常相似，但是对于社区市场中默认公开的方法肯定有强烈的愿望。我一直致力于 OrdinalLock 来满足这种愿望。</p>
+<h3 id="为序数交易实施索引器的最大挑战是什么？"><a href="#为序数交易实施索引器的最大挑战是什么？" class="headerlink" title="为序数交易实施索引器的最大挑战是什么？"></a>为序数交易实施索引器的最大挑战是什么？</h3><p>最大的技术挑战来自 BSV 的无限性。到目前为止，计算序数的最复杂逻辑发生在中本聪在其生命周期的早期被用于支付交易费用时。在最坏的情况下，计算这个需要对块中的每笔交易以及每笔交易输入交易进行分析。如果块的大小限制为 1MB，这是一个微不足道的过程，但是当块的大小可以达到 4GB 时，就需要一种完全不同的方法，而 1TB 的块可能需要一种不同的方法。</p>
+<p>如果为所有区块链交易历史记录某些信息，则可以大大缓解这些问题。除了少数例外，此数据与区块浏览器已经索引的数据相同，例如每笔交易支付的费用金额。</p>
+<p>这个完整的索引器仍在进行中，但幸运的是，BSV 上有一些快捷方式，这也使我们能够在没有完整索引器的情况下对序号进行高性能索引，其中之一就是名称 1SatOrdinals 的根。与其他 基于 UTXO 的链不同，BSV 允许输出 1 聪。</p>
+<p>通过将当前索引器限制为仅索引 1 个 Satoshi 输出，我们可以大大减少我们需要处理的数据量，以证明一个 Satoshi 的多次支出确实是同一个 Satoshi。我们还没有计算出哪个序数，但我们证明了多次支出适用于同一个序数。这使我们能够在实际计算您正在与哪个序数交互之前与序数完全交互。</p>
+<h3 id="GorillaPool-的JungleBus如何-帮助索引-Ordinal-交易？"><a href="#GorillaPool-的JungleBus如何-帮助索引-Ordinal-交易？" class="headerlink" title="GorillaPool 的JungleBus如何  帮助索引 Ordinal 交易？"></a>GorillaPool 的JungleBus如何  帮助索引 Ordinal 交易？</h3><p>JungleBus 提供包含铭文的所有交易的简单提要和具有 1 Satoshi 输出的所有交易的提要。这允许索引器过滤掉必须按几个数量级处理的数据。</p>
+<p><strong>重新记录中本聪的概念似乎很吸引人。为什么使用 Ordinals 与 MetaNet、RUN 或其他令牌协议相比更好地实现这一点？</strong></p>
+<p>这可能是我最兴奋的领域。通过简单地花费钱包中的比特币并刻录包含指向其他铭文的链接的文件来拥有和管理您的链上文件系统是非常有趣的。您可以使用可更新的序号来实现发布和订阅。您可以实施许可发布。您可以实施源代码控制系统。您可以实现类似 RUN 的状态机系统。应用程序是无穷无尽的，完成这些事情的基础工作已经到位。</p>
+<p>我已经构建了工具，允许用户将工具指向他们计算机上的一个目录，并将该文件夹中包含的每个文件和子目录以这样一种方式刻在链上，以便其他用户可以下载相同的文件通过简单地指向目录的根序号来获取数据。只需多做一点工作，文件系统同步就成为现实。从那里开始，发布更新就像在普通计算机上使用普通应用程序编辑普通文件一样简单。</p>
+<p>所有这三种令牌方法都可以实现此功能。使用 Ordinals 这样做的优势主要是由于其他技术缺乏公开可用的索引器以及这样做所需的更复杂和更昂贵的基础设施。</p>
+<p>使用 RUN，事务不能真正被孤立地索引，它最终需要对所有曾经去过的 RUN 事务进行索引以确定单个事务的状态。</p>
+<p>此外，RUN 可以生成比交易本身包含的状态数据量大得多的状态数据。此数据需要持久保存，并且可以以这种方式构建事务以充当针对任何试图维护全局索引的人的 DOS 攻击。这些问题使得运行公共基础设施成本高昂且风险极大。</p>
+<p>除了缺乏采用之外，MetaNet 协议在处理可更新铭文方面的缺点是 MetaNet 交易的操作顺序与零配置并不真正兼容。如果多个交易与同一个区块中的同一个 MetaNet 节点进行交互，那么这些操作的顺序只有在交易被挖掘并且它们在链中足够深以避免链重组的风险之后才能确定。</p>
+<p>在那之前，不可能知道哪笔交易将首先被开采。如果你犯了一个你想改正的错误，你需要一个小时左右的时间才能确信你的改正确实会在错误之后发生。否则，有可能在错误发生之前就已经修复了，你仍然需要再次更正它。</p>
+<h3 id="在过去的一个月里，你在埋头开发-1SatOrdinals-时学到的最重要的一课是什么？"><a href="#在过去的一个月里，你在埋头开发-1SatOrdinals-时学到的最重要的一课是什么？" class="headerlink" title="在过去的一个月里，你在埋头开发 1SatOrdinals 时学到的最重要的一课是什么？"></a>在过去的一个月里，你在埋头开发 1SatOrdinals 时学到的最重要的一课是什么？</h3><p>这不是一个新教训，但它强调了同时从事多项工作是多么复杂。有很多强大的方法可以将序数用作令牌标准，我想构建很多非常酷的东西，我认为这对社区来说会非常有趣，但所有这些东西都在争夺爱和关注。将注意力集中在错误的事情上并将时间浪费在没人会使用的事情上的风险很容易做到。</p>
+<h3 id="您认为非技术-BSV-用户最需要-1SatOrdinals-的什么功能或应用程序？"><a href="#您认为非技术-BSV-用户最需要-1SatOrdinals-的什么功能或应用程序？" class="headerlink" title="您认为非技术 BSV 用户最需要 1SatOrdinals 的什么功能或应用程序？"></a>您认为非技术 BSV 用户最需要 1SatOrdinals 的什么功能或应用程序？</h3><p>所有可以用可更新序号完成的事情。这拥有彻底改变从播客到出版到网络托管到社交媒体的一切的力量。拥有您的数据、您的网站、您的提要、您的书签，并订阅朋友的那些。在我看来，这是杀手级功能。</p>
+<p>David，谢谢你花时间回答我的问题。我希望读者更多地了解 1SatOrdinals。查看 <a target="_blank" rel="noopener" href="https://docs.1satordinals.com/">协议文档</a> 并立即在 <a target="_blank" rel="noopener" href="https://1satordinals.com/">1satordinals.com</a> 获取免费钱包 。 </p>
+<p>出于语法和清晰的目的，对本文进行了轻微编辑。</p>
+<hr>
+<p>本文转载自CoinGeek</p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2023/04/26/bsv-delisting-unshackling-bitcoin-sv-from-speculation-and-unleashing-its-true-power/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2023/04/26/mintblue-the-world-needs-only-one-blockchain-because-only-one-works/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>

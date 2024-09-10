@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>UTXO优于基于账户的系统 [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">UTXO优于基于账户的系统</h1>
+<article class="post markdown-style">
+  <p>比特币和以太坊最大的结构和元素差异在于前者使用未使用的交易输出（UTXO），而后者使用基于账户的模型。</p>
+<p>UTXO 就像现金，因为每张钞票或硬币都是相互独立的。只要一美元钞票本身是真实的，转账的有效性就是绝对的，不取决于单独的账目[1]。</p>
+<p>相比之下，基于账户的系统就像银行信用货币。各方承认信用的名义有效性，但直到系统中的所有账户都已对账后，交易才会结算。</p>
+<p>UTXO 已被证明在几乎所有方面都优于基于帐户的系统[2]。</p>
+<p>在比特币中的 UTXO 已经被证明一段时间的情况下，以太坊的发明者为什么选择基于账户的系统是一个谜。Vitalik Buterin 想要一台拥有运行智能合约的虚拟机的世界计算机。但他被错误地告知，比特币不能做智能合约或虚拟机，部分原因是它的 UTXO 机制。这是他开始的假设。进一步考虑到他当时对经济学和货币体系缺乏了解，并且编码人员倾向于从账户的角度思考，基于账户的可能看起来很自然，如果不是不可避免的话。</p>
+<p>事实上，直到今天，大多数人甚至开发人员仍然没有意识到这种选择是多么不幸。它使以太坊从根本上无法扩展（如果您希望第 2 层能够解决可扩展性，请参阅下面的更多讨论，也请阅读：<a target="_blank" rel="noopener" href="https://zh.zemgao.com/layer-2-solutions/">第 2 层解决方案</a>和<a target="_blank" rel="noopener" href="https://zh.zemgao.com/more-on-l2-solutions/">有关 L2 解决方案的更多信息</a>。）</p>
+<h3 id="回溯创世-B2G-问题"><a href="#回溯创世-B2G-问题" class="headerlink" title="回溯创世 (B2G) 问题"></a>回溯创世 (B2G) 问题</h3><p>在某些情况下，代币的接收者可能不仅需要当前转账的有效性，还需要追溯到发行代币的第一笔交易的整个历史记录的有效性。这种需求对于不可替代代币 (NFT) 尤其常见，因为 NFT 的价值通常取决于其唯一性。</p>
+<p>这称为回溯创世 (B2G)。</p>
+<p>直到最近，人们还认为，以太坊的基于账户的系统在 NFT 代币实现方面确实比比特币的 UTXO 有一个优势，这要归功于其内置的 B2G 解决方案以及代币跟踪和身份验证功能。相比之下，比特币的代币来源验证解决方案就不那么简单了。虽然原生比特币代币，即 satoshis，不会遇到这个问题，但比特币区块链上的其他代币可能需要一些额外的努力才能被追踪。例如，NFT 的接收者可能需要依赖某些第三方服务来证明其唯一性和真实性。</p>
+<p>原生代币比特币本身不存在这个问题，因为（1）比特币是可替代的，一般不需要特定代币的可追溯性，只需要基于 UTXO 的记账；(2) 挖矿节点的链上验证本质上为比特币提供了 B2G 验证。</p>
+<p>此外，对于基于链下代币逻辑的第 2 层（L2）类型代币，在设计上已经使用链下服务进行代币发行和管理，B2G 验证也可以由已经存在的预言机提供。系统。</p>
+<p>然而，对于基于链上代币逻辑的 L1 或 L0 类型代币（因此不使用链下预言机来管理令牌逻辑），B2G 是一个重要的问题，因为它可能需要一个预言机单独用于此目的毕竟。（注：这并不意味着 L1 和 L0 代币不如 L2 代币，只是让他们的“没有预言机”的说法不那么可靠。此外，对于 L0 代币，如 STAS，可能只需要被动索引器即可提供 B2G 服务，并且有争议的是，这样的索引器不需要像普通预言机那样的信任级别）。</p>
+<p>无论如何，B2G 是以太坊迄今为止拥有比比特币更清洁的解决方案的地方。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>最近，<a target="_blank" rel="noopener" href="https://nchain.com/">nChain</a>和<a target="_blank" rel="noopener" href="http://scrypt.io/">sCrypt</a>为 B2G 问题提供了一个漂亮的解决方案。请参阅在比特币上使用交易链证明和<a target="_blank" rel="noopener" href="https://medium.com/@xiaohuiliu/scalable-peer-to-peer-tokens-on-bitcoin-3fb2b2c4da25">可扩展的点对点令牌</a><a target="_blank" rel="noopener" href="https://nchain.com/solving-back-to-genesis-using-a-transaction-chain-proof/" title="使用交易链证明解决回溯创世">解决回溯</a>问题。<a target="_blank" rel="noopener" href="https://medium.com/@xiaohuiliu/scalable-peer-to-peer-tokens-on-bitcoin-3fb2b2c4da25"></a></p>
+<p>该解决方案既有效又重要。这更证明了比特币的 UTXO 优于以太坊或任何基于帐户的系统，因为它从根本上更有效的设计。</p>
+<p>B2G 证明是唯一一个基于账户的东西似乎比 UTXO 更有优势。现在连那个都没有了。</p>
+<p>因为获得 B2G 所需知识所需的信息_存在_于 UTXO 中，所以只需找出一种有效的方法来计算所需知识。sCrypt 之前提出的一种方法已经奏效，但它带有累积的数据大小包袱。现在，使用递归 zk-SNARKs、nChain 和 sCrypt 为世界提供了一个完美的解决方案。</p>
+<p>新方法的本质是，它不是在链中的每笔交易中携带计算 B2G 所需的全部累积数据，而是在链中的交易之间只计算并传递非常小的“证明数据”。“证明数据”不仅体积小，更重要的是不会随着交易数量的增加而增加。</p>
+<p>此外，“证明”的计算和传输都严格符合UTXO（意思是可并行化）的性质，可以真正实现点对点甚至离线，并且兼容<a target="_blank" rel="noopener" href="https://medium.com/nchain/simplified-payment-verification-48ac60f1b26c" title="简化付款验证 (SPV)">简化支付验证（SPV）</a>。</p>
+<p>该方法增加的唯一经济负担是计算本质上基于算法和数学的证明。证明的计算可以由用户、钱包或第三方服务提供商在链下完成，所有这些都是在链下完成的，而挖矿节点进行常规的链上验证，成本要低几个数量级。</p>
+<p>重要的是，由于证明是纯数学的并且无需信任即可验证，因此使用第三方计算证明不会引入需要信任的中介。例如，当该方法应用于 L0 或 L1 代币时，它不会改变代币的链上性质，因为证明的计算不会引入需要信任的中介，也不会形成具有它自己的网络安全漏洞，就像许多为不可扩展的区块链构建的链下解决方案一样。</p>
+<p>从抽象的角度来看，B2G 问题有这样一个漂亮的解决方案并不奇怪，因为 B2G 所需的信息肯定_存在_于 UTXO 链中。基于帐户的系统没有比 UTXO 更多的信息。它只是内置了 B2G，无论用户是否需要。但这是一个缺点而不是优点。</p>
+<p>以太坊的支持者会问，“为什么当最新的比特币 B2G 解决方案需要额外的计算时，以太坊做内置 B2G 是一个劣势？” 这听起来像是一个合乎逻辑的问题，但它基于一个错误的前提。具体来说，这个问题假设以太坊不为其内置的 B2G 进行计算。事实恰恰相反。以太坊不仅必须为其内置的 B2G 进行计算，实际上它以最低效率的方式进行，要求整个系统同时对所有账户进行对账，无论用户是否需要，或者谁可能需要它和谁可能没有。总而言之，它是在系统中作为基础操作完成的，系统用户是付出代价的。有没有想过为什么以太坊 gas 如此昂贵？</p>
+<h3 id="UTXO优于基于账户的"><a href="#UTXO优于基于账户的" class="headerlink" title="UTXO优于基于账户的"></a>UTXO优于基于账户的</h3><p>随着唯一假定的优势消失，基于帐户的模型的缺点变得更加清晰和暴露。B2G 只是另一个证明。</p>
+<p>这两个系统之间的区别是广泛而根本的。</p>
+<p>这就像用两种不同的语言来表达相同数量的信息，除了一种（基于帐户的）以丢失字母（最基本的语言构建块）为代价做出表面上易于理解的表达，而另一种（UTXO）开始仅使用构建块说出原语，但留下更高级和特定的表达方式供用户自由、独立地在需要时和在需要的范围内创建。</p>
+<p>从根本上说，如果将 UTXO 视为原语，则与账户相关的所有知识都可以从原语中派生出来，并且可以使用原语进行无限数量的构造。</p>
+<p><strong>UTXO 之间的独立性使得系统可以同时具有计算的并行化和工作负载分配的灵活性。</strong> 这是基于帐户的系统的“遗传”优势，基于帐户的系统始终是没有独立原语的高级“表达”。</p>
+<p><strong>计算的并行化</strong>使系统具有可扩展性。通过真正独立线程的并行化，系统可以具有无限的可扩展性，因为对规模的任何进一步需求都可以通过添加更多彼此并行运行的相同计算设备来满足，而不会遭受非线性复杂性，例如累积延迟、指数复杂性，以及越来越多的同步困难。</p>
+<p><strong>工作量分配的灵活性是</strong>指系统仅在需要工作时才执行工作（或要求网络中的成员和用户执行工作），并且仅由作为工作受益人的一方执行。只有必要的共同工作由系统集体执行。</p>
+<p>比特币具有内在的并行性和最佳的灵活性。这就是为什么比特币（不是 BTC，而是由 Satoshi 设计的比特币）具有无限的可扩展性和极高的效率（转化为极低的交易成本）的原因。BTC 是一种人为扭曲的比特币实现，它无法扩展，但这是出于不同的原因。看看，<a target="_blank" rel="noopener" href="https://zh.zemgao.com/btc-and-bsv-what-is-the-real-difference/">BTC 和 BSV，真正的区别是什么？</a></p>
+<p>相比之下，以太坊为其基于账户的设计付出的巨大代价是失去了计算并行化，从而失去了可扩展性。</p>
+<h3 id="自由与控制，市场经济与计划经济"><a href="#自由与控制，市场经济与计划经济" class="headerlink" title="自由与控制，市场经济与计划经济"></a>自由与控制，市场经济与计划经济</h3><p>从广义上讲，UTXO与基于账户的区别是自由市场经济与社会主义计划经济的区别。前者关乎效率、自由和不受约束的个人创造力，而后者关乎控制。</p>
+<p>考虑到<a target="_blank" rel="noopener" href="https://zh.zemgao.com/a-mathematical-proof-that-craig-s-wright-is-satoshi-nakamoto/">比特币的发明者</a>和以太坊的发明者不同的意识形态信仰和对经济学的不同理解， 这也不足为奇。</p>
+<p>这涉及到更广泛的经济学问题：</p>
+<p><strong>是系统主宰市场，还是市场主宰系统？</strong></p>
+<p>就整个国家层面的经济体制而言，150年来，我们有过市场经济与计划经济这两种意识形态相互较量的历史。战斗今天仍在继续，但这并不是因为后者已经显示出任何有效的证据，而是因为许多人对这种意识形态很执着，不会放弃尝试。“社会控制”有一些对人性具有独特吸引力的东西。</p>
+<p>一切社会主义制度都惨遭失败。上一个社会主义大体系中国，通过名义上的社会主义，却推动市场经济比美国实际上更加不受管制，从而取得了经济上的成功。</p>
+<p>区块链领域也存在同样的冲突。这场冲突始于 14 年前，而且还在不断加深。起初是中本聪的自由竞争比特币与小区块社会限制的对比，然后是 UTXO 与基于账户的模型之间的对比，以及 PoW 与 PoS 之间的对比。尽管这些冲突并没有公开宣称是市场经济与计划经济之间的战斗，但实质上它们是。</p>
+<p>因此，在将一个人的大部分生活交给一个系统之前，最好考虑一下潜在的哲学和意识形态，并根据你的信仰选择一方。</p>
+<h3 id="进一步的考虑"><a href="#进一步的考虑" class="headerlink" title="进一步的考虑"></a>进一步的考虑</h3><p>（1）不要把所有的货物都放在一个巨大的集装箱里，让整个系统时时刻刻、随地承担。但这正是基于账户的以太坊对其挖矿节点和验证器所做的事情，导致系统效率远低于比特币。</p>
+<p>（2）此外，您应该将工作量和灵活性需求放在实际受益于实施的实体（例如钱包或服务提供商，而不是挖矿节点），这样整个生态系统就不必承担负担_一些_用户需要结果。这是分发中的常识灵活性，但像以太坊这样的基于帐户的模型通过设计剥夺了系统这样做的能力。</p>
+<p>（3）但更糟糕的是，最终，人类的经验告诉我们，当权者在一个系统中受到过度负担的各方总是在保持公平的同时通过作弊找到出路。你看，以太坊要 PoS，你应该知道真正的原因，以及必然的结果。请参阅<a target="_blank" rel="noopener" href="https://zh.zemgao.com/proof-of-work-pow-is-the-only-way-to-prevent-corruption/">工作量证明 (PoW) 是防止腐败的唯一途径</a>；和<a target="_blank" rel="noopener" href="https://zh.zemgao.com/switching-to-pos-ethereums-predicted-corruption/">切换到 PoS——以太坊的预测腐败</a>。</p>
+<p>(4) 你只在你需要特定知识时计算知识，而不是不管你是否需要它总是在整个系统中计算它。这又是常识，但以太坊由于其基于账户的设计而使其成为不可能，因为基于账户意味着一切都是连接的，你不能只计算其中的一部分并能够确定所有账户的状态。</p>
+<p>(5) 最重要的是，您必须具备并行化才能进行扩展。在可扩展性方面，它不仅仅是一个优势。这是基本的和必要的。</p>
+<p>(6) 所以你希望分片能解决问题。它不会。使用分片创建 100 万个小型以太坊很容易，每个都单独工作，但创建一个可扩展的以太坊则完全不同，它仅包含 1000 个必须完美同步的分片，才能使一个基于帐户的巨型系统正常工作。难度、复杂性和脆弱性的程度随着分片的数量呈指数增长。最终，它不会起作用，因为世界需要无限的可扩展性（请参阅<a target="_blank" rel="noopener" href="https://zh.zemgao.com/layer-2-solutions/#the-layer-1-scalability">第 1 层可扩展性</a>），而以太坊不能拥有无限数量的分片。</p>
+<p>(7) 如果您对以太坊上的第 2 层解决方案寄予厚望，请阅读：<a target="_blank" rel="noopener" href="https://zh.zemgao.com/layer-2-solutions/">第 2 层解决方案</a>和<a target="_blank" rel="noopener" href="https://zh.zemgao.com/more-on-l2-solutions/">更多关于 L2 解决方案</a>。</p>
+<h3 id="呼吁以太坊开发者："><a href="#呼吁以太坊开发者：" class="headerlink" title="呼吁以太坊开发者："></a><strong>呼吁以太坊开发者</strong>：</h3><p>是时候回到 UTXO，一路走到比特币（BSV，不是 BTC）了。由其发明者 Satoshi Nakamoto 设计的原始比特币区块链（不是 BTC）具有无限的可扩展性和极低的交易成本（已经低于 0.0001 美元甚至更低），具有完整的智能合约和代币化功能，可以以数十美元的交易成本托管任何以太坊应用程序千倍以下，并准备与 IPv6 集成，成为 IoV 新互联网的一部分。</p>
+<p>使用 <a target="_blank" rel="noopener" href="https://medium.com/@xiaohuiliu/introducing-solidity-to-scrypt-transpiler-a0a6907bb3ef">自动将 Solidity 转换为比特币脚本的 Transpiler</a>使迁移变得容易。创新的 Transpiler 使重构比重新编码容易许多倍。</p>
+<p><em>从科学</em> 上讲，当基于 UTXO 的比特币被证明是可扩展的（不是 BTC）时，像以太坊这样的基于账户的系统就没有空间存在了。nChain 和 sCrypt 的最新作品更能证明这一点。</p>
+<p>目前的市场份额没有科学依据。</p>
+<p>是时候承认以太坊是一个根本性错误了。</p>
+<p><strong>脚注</strong>：</p>
+<p>注[1]：比特币优于现金。与实物现金不同，比特币具有可追溯性，同时仍能保护隐私。请参阅<a target="_blank" rel="noopener" href="https://zh.zemgao.com/anonymity-and-privacy/">匿名和隐私</a>。如果将比特币视为可替代的，即使在混合多个输入并在每个交易中产生多个输出的情况下，也可以依法追踪；同时，比特币可以使用分层确定性钱包创建大量一次性地址，使未经授权的各方无法识别和追踪用户，尤其是小额支付。在资产管理和法律合规方面，这是一个优势。请参阅<a target="_blank" rel="noopener" href="https://coingeek.com/taproot-building-a-mixer/">Taproot：构建混音器</a>。</p>
+<p>注[2]：这可能有点违反直觉，因为人们倾向于认为银行账户系统比现金系统更现代和先进，现金系统可能在现场很方便，但与现代数字系统不兼容。但这正是比特币作为“ <em>电子</em> 点对点现金系统”的发明如此重要的原因之一。比特币是现金，但同时也是电子的。之所以是现金，是因为比特币的设计，尤其是防止双花的设计，赋予了比特币一种独特的“物理性”，使其接近于传统的现金不记名工具（参见<a target="_blank" rel="noopener" href="https://zh.zemgao.com/bitcoin-is-a-negotiable-instrument/">比特币作为一种金融工具）</a>); 但同时它是电子的，因此可能享有现代数字技术的所有力量。两个不同世界（物理世界和数字世界）的最佳特征相结合，使比特币变得独一无二。</p>
+<hr>
+<p>本文转载自网络<br>标题：UTXO优于基于账户的系统<br>时间：2022-08-18<br>作者：ZeMing M.Gao<br>链接：<a target="_blank" rel="noopener" href="https://zh.zemgao.com/more-proof-that-utxo-is-superior-to-account-based-systems/">https://zh.zemgao.com/more-proof-that-utxo-is-superior-to-account-based-systems/</a></p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2022/08/21/whats-your-20-bitcoin/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2022/08/13/the-unsecure-lightning-network-as-btcs-layer-2-scaling-protocol/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>为什么使用Merkle树来扩容比特币 [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">为什么使用Merkle树来扩容比特币</h1>
+<article class="post markdown-style">
+  <p>Merkle 树和 SPV 可让您验证给定交易是否已被处理并包含在区块中。SPV 很关键，因为没有它就无法扩展区块链。更重要的是，SPV 是比特币的对等方面。</p>
+<p>Merkle 树在比特币白皮书的第 7 节中指定，并在Wright 博士关于 Merkle 树的博客上有更详细的解释。</p>
+<p>Merkle 树是分层数据结构，可以对数据集合进行安全验证。它是一个树状结构，有枝有叶。两者都包含哈希。</p>
+<p>每个叶子都包含链上块的唯一哈希值。树的每个分支的节点都包含该分支中每个子节点（叶子）的哈希值。树的叶节点包含数据的哈希值，而分支节点由其返回树根的子节点的哈希值组成。<br>树的根包含一个散列，表示该树的每个分支。因此，树的根具有关于其结构中所有内容的信息。</p>
+<p>Merkle 树是二叉树家族中的一种树。它们与二叉树家族中其他类型的树有相似之处，了解它们之间的异同很重要。</p>
+<p>二叉树（B-tree）是一棵树，树中的每个节点最多有两个子节点，可以用于搜索树。在普通的二叉搜索树中，节点的放置几乎完全取决于它们的添加顺序——列表中的项目到达此列表的时间。</p>
+<p>B 树是一种自平衡树结构，允许节点具有两个以上的子节点。B 树的每个内部节点都包含几个键值对，这些键值对划分节点中的子树。内部节点可以包含键和子节点。一个节点的子节点的个数会比存储的键的个数多一个。密钥存储在内部节点中，但不存储在叶子中包含的记录中。</p>
+<p>B 树是一种树结构，每个节点可以包含许多子节点。B 树的每个内部节点都包含键或子节点，而不是两者。这些树可以有许多指向每个节点的子节点的指针。这种“扇出”安排显着减少了在整个树中查找信息的计算量。一个额外的层次被添加到带有链接叶子的树的底部。叶节点没有子节点，但有包含 B 树信息的键。</p>
+<p>B 树和 Merkle 树之间的区别在于 B 树在树的每一层的每个节点中存储值，相比之下，Merkle 树（类似于 B 树）仅存储值在树的叶节点中。这在树的其余部分中创建了一种索引。</p>
+<p>树的每一层，从底部的叶节点开始，都由连接在一起的两个子节点散列的散列组成。如果您拥有从叶节点到根的树的每个级别的对值（每个级别所需的 1 对哈希称为 Merkle 路径），则可以通过使用重新计算树的根值一系列简单的哈希值——Merkle 证明。</p>
+<p>在比特币中，默克尔树的根值存储在每个区块的区块头中。块头通过包含 Merkle 交易树的 Merkle 根来表示交易块。</p>
+<p>如果你有区块头（只有 80 字节大小）和你交易的 Merkle 路径，你可以重新计算你的交易所在树的 Merkle 根。然后你可以比较这个计算以确保它与 Merkle 匹配root – 计算 Merkle 证明。在基本层面上——这就是 SPV 的工作原理。根据Wright 博士关于 Merkle 树和 SPV 的帖子，为了验证给定的交易是否已被处理并包含在一个区块中，SPV 检查对交易的每个输入执行 Merkle 证明确认输入存在并被开采。</p>
+<p>Wright 博士在设计比特币时使用了 Merkle 证明，因为它们支持简化支付验证 (SPV)，比特币白皮书第 8 节。SPV 用户可以通过执行 Merkle 路径身份验证证明来验证给定交易是 Merkle 树的一部分——由 Merkle 根表示。</p>
+<p>SPV 是大规模扩展区块内交易数量所必需的。需要大块大小和 Merkle 树来大规模扩展块中的交易数量。</p>
+<p>如果区块链的目的不是扩展，那么使用 Merkle 树是一个糟糕的设计决策，因为它们不如简单地存储交易 ID（序列化交易的双 sha256 哈希被称为 TXID）安全。</p>
+<p>Wright 博士写了一篇有用的博客文章来解释双哈希要求。该帖子重点介绍如何使用双哈希计算 TXID，但是，相同的逻辑适用于 Merkle 证明。</p>
+<p>Merkle 证明可用于轻松验证给定交易是否包含在 Merkle 树中并由Merkle 根表示。</p>
+<p>哈希具有定义的输出长度——在 sha256 的情况下，输出长度为 256 位。因此，当您从任何长度的输入计算散列时，您可以保持散列函数的抗碰撞性，因为可能的输入集非常大。</p>
+<p>但是，当您使用像散列这样的固定长度输入时，您会损失大约 1 位的抗碰撞性，因为可能的输入集减少了。例如，对于 sha256 消息摘要的每个散列，抗碰撞性将从 2^256 降低到 2^255，从 2^255 降低到 2^254，从 2^254 降低到 2^253 等等。</p>
+<p>通过像 Merkle 证明那样执行一系列哈希，你失去了抗碰撞性。因此，使用 Merkle 树的权衡是支持大规模的可扩展性以降低安全性。因此，在散列树中查找散列冲突比在有序列表中查找冲突更容易。</p>
+<p>这可以通过确保为每个交易输出使用新地址或锁定脚本解决方案来补救。</p>
+<p>因此，默克尔树在规模上更有效地运作。根据ZeMing M. Gao的说法： </p>
+<blockquote>
+<p>Merkle 树的效率随着数据集的大小呈指数增长。例如，以 BTC 区块为例，每个区块的交易少于 5000 笔。在 Merkle 树的哈希方案下，将每两个数据条目组合成一个哈希，然后将每两个哈希组合成另一个组合哈希，依此类推，5000 笔交易将需要 12 级哈希。相比之下，一个拥有 10 亿笔交易的区块只需要 30 级哈希。尽管交易总数增加了 200,000 倍，但哈希级别增加不到三倍（30 对 12）。</p>
+</blockquote>
+<p>以 BTC 为例，通过将计算区块根哈希的数据结构从 Merkle 树转换为简单数组，几乎可以消除风险。这样，不必像 Merkle 证明中那样必须计算一系列哈希值，而是可以使用完整的 TXID 数组计算单个哈希值。</p>
+<p>BTC 不需要使用 Merkle 树。除非有一个无限大的块大小不断增加，否则没有必要使用 Merkle 树。由于 BTC 的区块大小有限，区块头中的 Merkle 根可以简单地替换为交易列表的哈希值，因为这种机制与比特币白皮书第 8 节中定义的 SPV 相矛盾，不是面向未来的，因此永远不会规模。</p>
+<hr>
+<p>本文转载自网络<br>标题：为什么使用Merkle树来扩容比特币<br>时间：2022-11-30<br>作者：Guest Contributor<br>链接：<a target="_blank" rel="noopener" href="https://bitcoinsv.com/why-a-merkle-tree-is-used-to-scale-bitcoin/">https://bitcoinsv.com/why-a-merkle-tree-is-used-to-scale-bitcoin/</a></p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2022/11/30/the-10-best-enterprise-blockchain-stories-of-2022/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2022/11/29/the-idea-of-bitcoin-started-in-1998/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>

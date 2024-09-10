@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>破解密码：默克尔树如何确保数据的完整性 [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">破解密码：默克尔树如何确保数据的完整性</h1>
+<article class="post markdown-style">
+  <p>作为区块链开发人员，应深知确保记录在区块链中的数据完整性的重要性。</p>
+<p>Merkle 树为这一挑战提供了一个强大的解决方案，利用良好的加密哈希函数的特性为一组数据元素创建安全的数字指纹。在这篇博客中，我们将深入研究 Merkle 树的工作原理，以及如何使用它们来证明工作量证明区块链系统中交易的完整性。</p>
+<p>到本文结束时，您将深入了解 Merkle 树的工作原理以及如何使用它们来提高区块链的安全性。</p>
+<h3 id="什么是默克尔树？"><a href="#什么是默克尔树？" class="headerlink" title="什么是默克尔树？"></a>什么是默克尔树？</h3><p>Merkle 树是计算机系统中使用的一种数据结构，当需要证明记录中的任何地方都没有发生篡改时，它可以确保数据集中包含的所有元素的完整性。</p>
+<p>Merkle 树利用了良好的加密哈希函数的特性，因为要记录在 Merkle 树中的每个数据元素首先通过单向哈希函数作为记录的第一步。</p>
+<p>通过散列函数传递数据对象以有效唯一且完全确定的方式将任意长度的数据元素映射到固定长度的输出。</p>
+<p>如果使用 SHA256 哈希函数，那么无论它是 10 字节文件还是 4GB 文件，通过哈希函数传递该文件的二进制表示的输出始终是 32 字节（256 位）。</p>
+<p>本质上，任何数据元素都只是 1 和 0。这些 1 或 0 中的 8 个构成一个字节。无论是 jpeg、pdf、mp3 还是 mp4，它基本上仍然是那些 1 和 0，其中文件扩展名只是指示程序如何解释或编写这些 1 和 0。</p>
+<p>数据对象任何部分的任何变化，无论是一个额外的字母、一个删除的单词、一个添加的标点符号，都会导致该数据元素的 1 和 0 发生变化。</p>
+<p>即使是单个 1 或 0 的变化，通过良好哈希函数处理的任何数据元素的输出也会完全不同，以至于即使它们通过相同的 SHA256 算法，它们之间也没有明显的数学关系同一数据对象的两个版本。</p>
+<p>这意味着哈希函数的输出可以用作特定于该状态下的数据对象的数字指纹。任何更改都将反映在完全不同的哈希输出中。</p>
+<p>然而，由于支持哈希函数的算法是纯粹确定性的，每次将相同的数据对象放入相同的哈希函数时，都会创建相同的相同输出。</p>
+<h3 id="Merkle-树如何保护数据"><a href="#Merkle-树如何保护数据" class="headerlink" title="Merkle 树如何保护数据"></a>Merkle 树如何保护数据</h3><p>Merkle 树利用此属性创建数据集的记录，该记录可用于证明该集合的任何元素都没有发生篡改。</p>
+<p>如果我们有四个文件，A、B、C 和 D，那么我们可以对这四个文件进行哈希处理以获得 H(A)、H(B)、H(C) 和 H(D)。这些第一个哈希值称为 Merkle 树的叶节点值。</p>
+<p>由于这些文件的相对顺序很重要，我们可以按顺序为这些文件对创建数字指纹。</p>
+<p>我们可以将 H(A) 和 H(B) 连接在一起以创建一个 64 字节的字符串，该字符串本身可以通过 SHA256 函数传递以创建对的数字指纹。如果该对被订购为 BA 而不是 AB，则此指纹将完全不同。对于 H(C) 和 H(D) 也可以这样做。</p>
+<p>来自 Merkle 树的成对值的数字指纹被称为树的内部节点值。</p>
+<p>现在要记录这些指纹对的顺序，我们需要再次将它们连接在一起以生成一个 64 字节的值，该值再次通过哈希函数创建整个集合的单个安全固定字节长度摘要值。该值称为默克尔根。</p>
+<p>请记住，AB 将散列为与 BA 不同的结果，类似地，ABCD 将散列为与 CDBA 不同的输出，即使它是相同的文件。</p>
+<h3 id="Merkle-证明如何扩展工作量证明区块链"><a href="#Merkle-证明如何扩展工作量证明区块链" class="headerlink" title="Merkle 证明如何扩展工作量证明区块链"></a>Merkle 证明如何扩展工作量证明区块链</h3><p>在我们的四个对象上完成的相同过程也可以在数百万或数十亿个数据对象上完成。因为当我们向上移动经过散列的有序对的输出时，我们将树的下一层数据集中的对象数量减半。</p>
+<p>在上面的示例中，如果我想检查数据对象 A 是否仍处于与创建已发布的Merkle 根时相同的状态，那么我可以简单地对该对象进行散列，然后将其与对象 B 的散列结合起来。然后我将我在那里计算的值与 CD 的数字指纹结合起来，如果我得到相同的 Merkle 根，那么我知道没有发生任何变化。</p>
+<p>因此，即使在 40 亿个数据对象的批次中，如果提供了一些特定的值，那么该集合中任何元素的完整性都可以通过仅执行散列数来确定，因为树有层。在这种情况下，将进行 32 次计算，即 2 ·32 &#x3D; 42.9 亿。</p>
+<p>阅读：<a target="_blank" rel="noopener" href="https://tsc.bitcoinassociation.net/how-the-merkle-proof-standard-can-improve-your-bitcoin-payment-service/">《Merkle 证明标准如何改善您的比特币支付服务》</a></p>
+<h3 id="Merkle-证明如何确保区块链数据的完整性"><a href="#Merkle-证明如何确保区块链数据的完整性" class="headerlink" title="Merkle 证明如何确保区块链数据的完整性"></a>Merkle 证明如何确保区块链数据的完整性</h3><p>在工作量证明区块链系统中，我们称集合为“块”，元素为交易。然后，我们可以再次利用加密哈希函数的特性，确保汇总一批交易的所有交易记录为一个块的Merkle 根未被篡改。</p>
+<p>对于 SHA256 函数，可以创建 2 256个（或大约 10 个具有 78 个零值）的唯一输出。然后输出实际上只是一个介于 0 和 2 256之间的随机数。根据概率和分布的性质，一半的数字将大于 2 255，并且很少有数字以零开头。</p>
+<p>因为更少的人会以多个零开始，那么如果我们将 Merkle 根作为几个数据参数之一包含在散列函数中作为序列化的 80 字节字符串，那么我们可以设置一个挑战，即唯一有效的输出是具有一定数量的前导零的输出。</p>
+<p>要找到满足前导零数的解决方案是一项只能通过蛮力来完成的挑战。每次尝试失败后，序列化的 80 字节字符串中的一位会发生变化，然后再进行一次尝试。</p>
+<p>尽管比特币矿工每秒可以在他们的专用机器上执行数十亿个这样的哈希值，但即使有数百台这样的机器联网并应对这一挑战，他们仍然需要很多分钟才能找到有效的输出。</p>
+<p>由于操作昂贵的机器需要花费几分钟的时间来消耗大量的电力，因此网络上的所有人都知道哈希难题的解决方案很难重新创建。然后可以显示输出证明您已完成工作以找到有效的解决方案，并且其他实体可以知道您是认真的并投资于系统。</p>
+<p>Merkle 根作为输入的一部分，经过哈希处理以生成获胜输出，然后可以被认为是非常安全的，并且通过扩展，Merkle 根汇总的所有交易的时间顺序也可以被认为是安全的。</p>
+<p>可以通过利用其他基于散列的数据结构的属性来实现相同的目的，例如链表，其中 A 被散列以创建 H(A)，然后将 H(B) 添加到末尾并散列，以创建H(AB) 然后 H(C) 添加到末尾并散列以创建 H(ABC) 等。</p>
+<p>这种方法虽然安全，但缺点是为了验证单个元素的完整性，需要执行许多操作，并且不能由计算机系统并行处理。</p>
+<p>另一方面，Merkle 树是高度可并行化的，因为整棵树的子结构可以单独处理，并且只能在树的较高层级组合。在我们上面的示例中，AB 可以在与 CD 不同的核心上处理，并且它们可以稍后组合为一个操作。在一棵 32 层的 Merkle 树中，那么整棵树可以并行线程化成 2、4、8、16 甚至 32 个核。</p>
+<p>此外，要验证数据元素的完整性，只需要在元素之外提供 32 x 32 字节的值，以确定它是否可以创建所需的 Merkle 根。这种效率是简化支付验证机制的核心，在该机制中，可以通过为 2 32 中的一笔交易提供仅 32 x 32 字节 (1KB) 的数据来检查用于交易的资金来源的完整性或 2KB 用于 2 64 个事务中的一个。</p>
+<h3 id="比特币-Merkle-证明说明了创建者的规模愿景"><a href="#比特币-Merkle-证明说明了创建者的规模愿景" class="headerlink" title="比特币 Merkle 证明说明了创建者的规模愿景"></a>比特币 Merkle 证明说明了创建者的规模愿景</h3><p>Merkle 树不一定是最有效的数据结构，可用于仅在块中记录少量交易的系统。简单的散列列表可以达到相同的目的并提供更多的简单性。当系统增长到每秒处理数十亿笔交易时，Merkle 树的效率真正发挥作用，对系统的可扩展性至关重要。</p>
+<p>令人印象深刻的是，Craig Wright 博士从一开始就构建了一个能够在多年后处理如此天文吞吐量的系统，在这些设计考虑中进行了深思熟虑。</p>
+<hr>
+<p>原文：<a target="_blank" rel="noopener" href="https://www.bitcoinsv.com/cracking-the-code-how-merkle-trees-ensure-the-integrity-of-data">《破解密码：默克尔树如何确保数据的完整性》</a></p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2023/02/27/ordinals-on-bitcoin-without-segwit-and-taproot/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2023/02/20/bitcoin-stability-and-the-decentralisation-of-power/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>

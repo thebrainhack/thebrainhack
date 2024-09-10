@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>转向IPv6并通过区块链向PeerTLS迈出下一步 [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">转向IPv6并通过区块链向PeerTLS迈出下一步</h1>
+<article class="post markdown-style">
+  <p>尽管许多人仍将 IPv6 视为一项新兴技术，但它已在全球范围内被数十亿人使用。雅培网络安全高级软件工程师 Lawrence Hughes表示，当今大多数发达国家现在有超过 50% 的互联网流量通过 IPv6，而在美国，95% 或更多的无线运营商已经支持该协议。</p>
+<p>在担任 Abbot 职务之前，Hughes 是 Sixscape Communications 的联合创始人&#x2F;首席执行官。他还是最近出版的新书<a target="_blank" rel="noopener" href="https://www.amazon.com/gp/product/1484286022/">《揭晓第三代互联网：使用 IPv6 重塑计算机网络》</a>第一版的作者。</p>
+<p>在最近于蒙特利尔举行的 IEEE 第五届未来网络世界论坛上，休斯指出，全世界 41% 的谷歌连接都是通过 IPv6 进行的，许多人每天都在手机上使用它，甚至没有意识到这一点。</p>
+<p>‘这是真正的代际变化。就像在 1983 年从 ARPANet 转向 IPv4，”他说。<br><a target="_blank" rel="noopener" href="https://youtu.be/g_lkkpgBgzw">https://youtu.be/g_lkkpgBgzw</a></p>
+<h3 id="PeerTLS-的重要性"><a href="#PeerTLS-的重要性" class="headerlink" title="PeerTLS 的重要性"></a>PeerTLS 的重要性</h3><p>‘IPv6 有 128 位地址，可提供数万亿个公共地址。这允许世界上的每个节点（甚至电话）都有一个全球唯一的公共 IP 地址，这意味着它可以接受来自任何其他节点的传入连接——假设没有防火墙阻止它，”休斯说。</p>
+<p>‘你现在可以在任何节点上运行服务器，包括手机，或者直接从我的节点到你的节点建立端到端连接——不需要中间服务器，而 IPv4 和 NAT 则需要。借助 PeerTLS，我们现在可以在互联网上的任意两个节点之间直接建立安全连接，例如从我的手机直接连接到您的手机。</p>
+<p>使用 PeerTLS，两个节点都使用一个客户端证书来标识一个人或设备而不是一个节点——就像服务器证书的情况一样。</p>
+<p>首先，PeerTLS 可以提供真正的端到端加密。没有中间节点，流量将以明文形式传输。其次，它可以提供基于证书的相互强认证，因此双方都可以确定对方是谁。</p>
+<p>这对于传统的 TLS 是不可能的，尤其是当涉及多个链接时。这也允许在 TLS 握手期间强制执行非常强大的白名单和黑名单。</p>
+<h3 id="中间服务器破坏-TLS"><a href="#中间服务器破坏-TLS" class="headerlink" title="中间服务器破坏 TLS"></a>中间服务器破坏 TLS</h3><p>Hughes 解释说，如果两端之间只有一个连接，TLS 就可以正常工作。这在所有连接都只有一个链接（从浏览器到服务器）的 Web 上不一定是问题。</p>
+<p>“通过电子邮件、FTP 和大多数其他带有中间节点的协议，我们每个人都连接到服务器，并且每个连接都可以使用 TLS 来保护，但是 TLS 无法保护从我到你的所有路径. 对于电子邮件，我们之间可能有多个中间服务器。</p>
+<p>Hughes 解释说，通过 IPv6 的直接端到端连接，用户之间只有一个链接用于电子邮件、文件传输、聊天甚至 VoIP。</p>
+<p>‘每个人都有一个客户端，每个人都有一个个人服务器。我的客户端直接连接到您的服务器。您的服务器在您的节点上运行，因此您不必从中间服务器检索我的消息。它已经在您的节点上。</p>
+<p>‘TLS 可以轻松保护该链接。这是真正的边缘计算或去中心化消息传递。我们不再需要中间服务器，除了延迟消息或群聊。这也是很难被任何人窥探的。特别是如果它是端到端加密的。大多数拦截发生在中间服务器上。</p>
+<h3 id="物联网和区块链的完美契合"><a href="#物联网和区块链的完美契合" class="headerlink" title="物联网和区块链的完美契合"></a>物联网和区块链的完美契合</h3><p>IoT 设备通常需要作为对等设备相互通信，理想情况下不通过某个中间节点。Hughes 说，有了 IPv6 和 PeerTLS，他们不仅可以做到这一点，还可以通过真正的端到端加密和强大的相互身份验证来做到这一点。</p>
+<p>‘同样，在基于区块链的系统中，节点需要作为对等节点相互交换信息。今天，这必须通过破坏 TLS 并引入不必要漏洞的中间服务器。借助 PeerTLS，他们可以以高度安全的方式作为对等点直接相互通信。当然，每个节点都需要 IPv6。</p>
+<p>您可以在此处详细了解<a target="_blank" rel="noopener" href="https://bitcoinassociation.net/ipv6-unlocks-the-true-power-of-the-bsv-blockchain/">向 IPv6 的迁移以及它将如何释放 BSV 区块链的真正力量。</a></p>
+<hr>
+<p>本文转载自网络<br>标题：转向IPv6并通过区块链向PeerTLS迈出下一步<br>时间：2022-12-08<br>作者：Ryan Brothwell<br>链接：<a target="_blank" rel="noopener" href="https://bsvblockchain.org/news/the-move-to-ipv6-and-taking-the-next-step-with-peertls-via-blockchain/">https://bsvblockchain.org/news/the-move-to-ipv6-and-taking-the-next-step-with-peertls-via-blockchain/</a></p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2022/12/15/someone-stole-your-bitcoin-heres-how-you-can-get-them-back/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2022/12/02/the-symbiosis-of-bitcoin-and-ipv6/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>

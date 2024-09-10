@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>比特币节点不会对规则更改进行“投票”——但开发人员不应该提出它们 [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">比特币节点不会对规则更改进行“投票”——但开发人员不应该提出它们</h1>
+<article class="post markdown-style">
+  <p>比特币创始人 Craig S. Wright 博士提醒大家，交易处理者或“矿工”不应该对使用哪个版本的协议软件进行“投票”。更新最终是强制性的，唯一的选择是更新或离开网络。</p>
+<p>如果少数 BTC 核心开发人员决定改变 比特币交易 的排序或验证方式，这将成为一个重要问题。这种情况过去发生过几次，最臭名昭著的一次是在 2017 年，当时核心开发人员实施了“隔离见证”（SegWit）签名。</p>
+<p>本周，随着 BTC 协议软件的最新候选版本 24.0.0 的发布，关于矿工可以&#x2F;不能做出哪些决定的问题再次出现。</p>
+<p>请注意，开发人员更改规则的能力仅适用于使用 BTC 网络的人员。它不适用于 原始比特币协议比特币 SV。使用 BSV，基本的交易规则是“一成不变的”。规则不得根据开发商（或他们的财务&#x2F;意识形态赞助商）的一时兴起而改变。</p>
+<p>如果你今天在比特币网络上记录一笔交易，它必须在未来数百年内仍然有效并且有效（如果比特币网络本身仍在运行）。对于从普通消费者到企业级项目的每个人来说，使用和构建比特币，他们必须能够相信规则不会改变；球门柱不能移动；地面不能在它们下面移动。</p>
+<p>这对于潜在的长期交易很重要，例如涉及信托、商业合同或代币化资产的交易。比特币是一个带有时间戳记的事件分类账，在其中了解发生了什么以及确切时间至关重要。让少数可能受到影响和&#x2F;或妥协的人有能力决定政策是很危险的。</p>
+<p>将此与以太坊进行比较，在过去几年中，以太坊已将整个网络从安全的工作量证明 (PoW) 处理算法转变为权益证明 (PoS)。最终于 2022 年激活，这从根本上改变了网络上验证者的经济激励。以前“矿工”必须投资物理硬件才能参与，而现在所需要的只是大量的 ETH 来抵押——谁知道他们抵押的是谁的 ETH？</p>
+<p>想象一下，您刚刚在这样的网络上部署了一个企业级应用程序……然后几年后，协议开发人员决定做出可能会破坏您的业务模型或迫使您花费数百万美元修改自己的系统的更改。没有一个头脑正常的人会愿意这样做。这就像试图在一个每隔一两年就会更改其宪法和法律制度的国家开展业务一样。</p>
+<p>这就是为什么处理器&#x2F;节点&#x2F;矿工不应被视为“达成共识”或 “投票”更改，以及为什么开发人员不应该首先提出根本性更改。更新应该解决操作效率或修复错误，使更新没有争议。节点只是执行规则。</p>
+<h3 id="BTC-Core-有争议的更新"><a href="#BTC-Core-有争议的更新" class="headerlink" title="BTC Core 有争议的更新"></a>BTC Core 有争议的更新</h3><p>但回到比特币。“Bitcoin”Core 的 24.0 更新是 BTC 每六个月发布一次的最新版本，引入了关于处理者（矿工）如何决定哪些交易应该被验证的新规则。具体来说，它改变了 BTC 的“按费用替换”（RBF）处理机制的规则，该机制允许用户将现有（未确认）交易替换为另一笔交易，大概费用更高。</p>
+<p>BTC 网络上存在 RBF，因为该网络在全球范围内每秒只能处理大约 3-4 笔交易。如果你的交易在未确认交易的内存池中“卡住”数小时或数天，你可以增加费用，希望矿工比其他人更快地处理它。</p>
+<p>Bitcoin Core 24.0 规则规定任何交易现在都可以被替换。以前，在最初发送交易时，RBF 是可选的。这可能会给接受零确认交易或仍在等待确认的交易的 BTC 企业带来问题——而在 BTC 中，有很多这样的交易。</p>
+<p>正如 Wright 博士 之前指出的那样，立即接受零确认交易应该不会带来任何风险。RBF 增加了双花尝试的风险，正如 2021 年 1 月发生的一个 值得注意的例子 。</p>
+<p>不过，这里重要的是，争议一开始就不应该存在。开发者不应该拥有改变重要政策的权力，也不应该期望矿工对它们进行“投票”。中本聪在 2008 年的比特币白皮书中阐述了这些期望 ：</p>
+<p>“该网络以其非结构化的简单性而强大。节点在几乎没有协调的情况下同时工作。它们不需要被识别，因为消息不会被路由到任何特定的地方，只需要尽最大努力传递。节点可以随意离开和重新加入网络，接受工作证明链作为他们离开时发生的事情的证据。他们用他们的 CPU 能力投票，通过努力扩展它们来表达他们对有效块的接受，并通过拒绝处理它们来拒绝无效块。任何需要的规则和激励措施都可以通过这种共识机制来执行。”</p>
+<p>加入官方比特币 SV Discord 频道：<br><a target="_blank" rel="noopener" href="http://www.discord.gg/bsv">www.discord.gg/bsv</a></p>
+<hr>
+<p>本文转载自网络<br>标题：比特币节点不会对规则更改进行“投票”——但开发人员不应该提出它们<br>时间：2022-11-30<br>作者：Jon Southurst<br>链接：<a target="_blank" rel="noopener" href="https://coingeek.com/bitcoin-nodes-dont-vote-on-rule-changes-but-developers-shouldnt-propose-them/">https://coingeek.com/bitcoin-nodes-dont-vote-on-rule-changes-but-developers-shouldnt-propose-them/</a></p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2022/12/02/the-symbiosis-of-bitcoin-and-ipv6/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2022/11/30/the-10-best-enterprise-blockchain-stories-of-2022/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>Teranode：可扩展的比特币节点软件 [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">Teranode：可扩展的比特币节点软件</h1>
+<article class="post markdown-style">
+  <p>软件架构师 Kapil Jain 介绍了在构建 Teranode 软件方面所做的工作，该软件将允许比特币水平扩展。它首先解释了该软件作为世界上最高效的交易处理软件之一的要求。</p>
+<p>比特币协会目前正在构建著名的比特币 Teranode 软件，并正在进行各种设计实验。早期的公开演示之一展示了通过软件的交易管道扩展到 50,000 TPS 的工作原型，以展示软件功能中最关键的部分之一。</p>
+<p>从那时起，除了原型中展示的水平缩放之外，该软件还在继续构建，需要进一步改进。</p>
+<p>本文介绍了构建该软件所做的工作。它首先解释了该软件作为世界上最高效的交易处理软件之一的要求。</p>
+<h3 id="为什么选择-Teranode？"><a href="#为什么选择-Teranode？" class="headerlink" title="为什么选择 Teranode？"></a>为什么选择 Teranode？</h3><p>当前的SV 节点软件开始作为实施白皮书中指定的比特币协议的第一个工作版本。从一开始，软件的维护就缺乏对协议的遵守，这些变化使其在实用性方面受到限制。此外，初始版本侧重于一个单一的整体，这在这种网络的开始就足够了。</p>
+<p>这一刻的需要是思考未来，并为以真正的精神实施协议的更高效和可扩展的软件做好准备。这就是比特币协会提出的 Teranode 软件计划背后的理念。主要想法是开始研究软件以及如何重新构建软件的组件和与外部实体的连接点，以便它能够支持规模（当前目标是 100 万 TPS，即每天约 864 亿 tx） ).</p>
+<p>全球企业实用程序区块链必须支持其声称用于的大量用例的此类容量。举个例子，为印度人口发行 CBDC，目前每月使用传统支付系统进行约 100 亿笔交易，需要比当前系统更大的可扩展性。</p>
+<p>展望未来，预计使用量会增加，这需要大量工作来构建这样一个新颖、可扩展和有弹性的节点软件。这就是为什么我们有 Teranode 计划来确保软件准备好支持成为全球公共区块链的想法。</p>
+<h3 id="什么是-TERANODE？"><a href="#什么是-TERANODE？" class="headerlink" title="什么是 TERANODE？"></a>什么是 TERANODE？</h3><p>Teranode 是比特币协议可扩展实施的名称。构成 Teranode 的每个组件都经过重新设计，考虑到扩展需求，并与高吞吐量消息传递和通信基础架构集成。</p>
+<p>在非常高的层次上，这样的系统看起来如图所示：</p>
+<p><a target="_blank" rel="noopener" href="https://bitcoinsv.com/wp-content/uploads/2022/12/image1-1024x377.png">https://bitcoinsv.com/wp-content/uploads/2022/12/image1-1024x377.png</a></p>
+<p>尽管上图近似并提供了一个非常高级的视图，但它确实定义了软件的关键方面，即 Teranode。相关组件，如 P2P 网络，正被重命名为比特币服务器网络，因为这些节点实际上是网络中的服务器，它们形成用于交换各种消息（交易、区块等）的网络。</p>
+<p>在左侧，挖矿过程发生在专门设计的 ASIC（专用集成芯片）上，它执行一个且只有一个功能，即 POW 解决方案发现。一个允许许多这样的 ASIC 机器并行工作以发现 POW 解决方案并与主要软件 Teranode 对话的池软件。</p>
+<h3 id="谁会使用-TERANODE？"><a href="#谁会使用-TERANODE？" class="headerlink" title="谁会使用 TERANODE？"></a>谁会使用 TERANODE？</h3><p>Teranode 适用于满足用户大量交易处理的节点。当企业或政府开始将区块链网络用于各种用例时，他们可能会选择与节点签约或运行他们的节点。这些渴望数量的观众是 Teranode 计划的客户。</p>
+<h3 id="TERANODE-什么时候准备好？"><a href="#TERANODE-什么时候准备好？" class="headerlink" title="TERANODE 什么时候准备好？"></a>TERANODE 什么时候准备好？</h3><p>由于 Teranode 软件是微服务或基于服务&#x2F;组件的架构设计，因此每个组件都在其内部设计上进行工作以使其适合用途。其中一些组件已经按比例构建，其中一些已在演示中向观众展示，但一些组件仍在开发中。</p>
+<p>目前，节点支持的交易量非常适合 SV 节点软件本身的支持。</p>
+<p>Teranode 团队将在今年及以后继续发布组件，并在测试中进行越来越多的集成扩展演示，然后允许节点也使用该软件。Teranode 将不仅仅是节点不需要它就可以开始运行的东西，因为运行它的成本将高于 SV 节点软件，这使得这个决定成为一个经济的决定。</p>
+<h3 id="TERANODE此时在哪里？"><a href="#TERANODE此时在哪里？" class="headerlink" title="TERANODE此时在哪里？"></a>TERANODE此时在哪里？</h3><p>比特币协会与他们的开发合作伙伴 nChain Ltd 合作，拥有一支由专家开发人员、架构师和各种主题专家组成的专门团队，包括 Craig S. Wright 博士（关于比特币协议规范）的指导，他正在构建该软件.</p>
+<p>可以说，Teranode 计划掌握在这个高度专注和敬业的团队手中，他们正在研究协议的各个方面及其在软件中的实施。</p>
+<p>这是对 Teranode 计划的快速介绍。该计划的目标不仅是交付软件，还提供详细的用户指南以及随软件一起发布的易于理解的协议文档。</p>
+<hr>
+<p>本文转载自网络<br>标题：Teranode：可扩展的比特币节点软件<br>时间：2023-01-10<br>作者：Kapil Jain<br>链接：<a target="_blank" rel="noopener" href="https://bitcoinsv.com/teranode-a-scalable-bitcoin-node-software/">https://bitcoinsv.com/teranode-a-scalable-bitcoin-node-software/</a></p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2023/01/19/craig-wright-2008-white-paper-on-electronic-contracting-is-significant-here-why/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-09</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2023/01/05/a-letter-to-elon-musk/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>
