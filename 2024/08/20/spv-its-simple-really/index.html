@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu-site-verification" content="codeva-2hc7oP8fSj" />
+  
+  <title>SPV：真的很简单 [ Mucc.cc ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+  
+  
+  
+    <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+	  <h1><a href="/">Mucc.cc</a></h1>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          <a href="/">首页</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/博客/index.html">博客</a>
+        
+          
+          
+          
+          
+          
+          <a href="/categories/比特币/index.html">比特币</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">SPV：真的很简单</h1>
+<article class="post markdown-style">
+  <p>在比特币的发展史上，很少有概念像“节点”的定义和简化支付验证（SPV）的存在一样引发如此多的争论和争议。 SPV 由中本聪在最初的比特币白皮书中介绍，被设想为一种使轻量级客户端（不需要下载整个区块链的客户端）能够高度可信地验证交易的方法。这尤其适用于规模相对较小的零售支付，因为信用卡和现金销售中存在一定程度的假定欺诈，因此保险等产品已经存在。</p>
+<p>理论上，SPV 的目的是让用户无需运行“完整节点”即可与比特币网络进行交互，从而降低进入门槛，让比特币更容易访问。</p>
+<p>然而，在 BTC Core（BTC 网络的主要软件客户端）中实施 SPV 却并非如此简单。关于运行完整节点与依赖 SPV 钱包的必要性的争论已经在比特币社区中产生了分歧，核心开发人员之一Luke Dashjr等著名人物对此事表达了强烈的意见。</p>
+<p>Dashjr 认为 SPV 损害了网络的安全性和去中心化性。这种观点反映了 BTC Core 开发人员更广泛的观点，即 SPV 本质上存在缺陷，用户应该运行完整节点才能充分参与网络。值得注意的是，Dashjr 是小区块链方面的极端主义者，认为实际上应该降低区块大小限制，以便更多的人可以在没有工作量证明（PoW）的情况下下载和验证整个区块链。</p>
+<p>应该指出的是，大区块者将“节点”定义为使用 PoW 写入区块链的完全验证客户端，通俗地称为“矿工”或“矿池”。小区块链者将节点定义为运行区块链完整副本的任何完全验证的对等点。双方都通过滥用对术语的普遍误解来玩修辞棋游戏，我认为他们喜欢这种方式作为咨询和演讲费用的把关手段。但这是一篇单独的文章……</p>
+<p>事实上，大区块的风险在于，作为节点参与的人太少，导致安全性和持久性问题，而小区块的风险在于，作为节点参与的人过多，并通过投票来简单地改变规则。凭借软件版本信号。这两种风险都可能产生问题。</p>
+<h3 id="BTC-Core中SPV的兴衰"><a href="#BTC-Core中SPV的兴衰" class="headerlink" title="BTC Core中SPV的兴衰"></a>BTC Core中SPV的兴衰</h3><p>有一段时间，BTC Core 确实包含了一些支持 SPV 的功能，例如 Bloom Filters，旨在帮助 SPV 客户找到与其相关的交易，而无需下载整个区块链。然而，由于 Dashjr 的领导，这些功能基本上没有被使用，直到从 BTC Core 0.12.0 开始逐渐被弃用和删除。官方给出的理由是，布隆过滤器效率低下，并且会带来隐私风险，因为它们可能会泄露比预期更多的用户交易信息。</p>
+<p>像我这样的批评者认为，删除这些功能不仅是一项技术决策，而且是一项战略决策，反映了核心开发人员对比特币愿景的偏好，即每个用户都运行一个完整节点，以便更容易启动大量节点节点的数量，以发出网络上社交&#x2F;女巫攻击所需变化的信号。</p>
+<p>他们认为，这种对人们运行全节点的坚持降低了进入门槛，特别是对于计算资源有限的用户来说，因此他们在营销活动中保持了一种神秘的民粹主义意识。</p>
+<h3 id="SPV：失败的原因还是尚未开发的潜力？"><a href="#SPV：失败的原因还是尚未开发的潜力？" class="headerlink" title="SPV：失败的原因还是尚未开发的潜力？"></a>SPV：失败的原因还是尚未开发的潜力？</h3><p>BTC Core 已经放弃 SPV 的事实并不意味着 SPV 不可能实现，也不意味着它从未打算成为比特币的一部分。毕竟，中本聪在白皮书中用了整整一部分来解释 SPV 如何运作。</p>
+<p>Core 开发者对 SPV 的拒绝更多地反映了他们自己对比特币的愿景，而不是对比特币能做什么或不能做什么的明确声明。值得注意的是，他们的愿景与中本聪将比特币视为可扩展的即时支付技术的愿景不一致。</p>
+<p>BSV是比特币的一种竞争性实现，旨在实现白皮书中提出的最初愿景。 BSV 开发人员一直在努力实施分层策略，其中Teranode挖矿业务维护区块链的完整、未经修剪的副本。正在开发覆盖网络来保留特定应用程序或第二层协议的专用数据。至关重要的是，SPV 正在通过“ Lite Client Toolbox ”和“ SPV Wallet ”等举措作为覆盖层实施，这些举措旨在使 SPV 成为现实。</p>
+<p>在实践中，这意味着，如果网络没有主动受到攻击（一种公开且易于了解的状态），则可以将带有默克尔证明和区块头的付款从付款人的钱包转交给商家，而商家的钱包可以立即进行健康检查使用销售点系统进行付款，该系统监听覆盖网络，旨在立即高度确定地验证付款是否有效。</p>
+<p>其功能类似于信用卡授权，对于小额即时支付来说足够安全。 “小”是一个可以由商家确定的指标。较大的付款可能需要等待十分钟的结算时间。 “大”也是一个商业问题，由商人决定，而不是由一些技术官僚软件开发商决定，但这个概念本质上是一杯咖啡可能不值得等待十分钟，一辆新车或购买的房子可以可能需要等待几分钟才能解决，不会带来太多不便。</p>
+<p>简而言之，使用 SPV 首先是业务决策，其次是技术实施决策，BSV 的工程师决定看看中本聪对于他为全球商业构建的网络是否正确。</p>
+<h3 id="核心的权威：一个视角问题"><a href="#核心的权威：一个视角问题" class="headerlink" title="核心的权威：一个视角问题"></a>核心的权威：一个视角问题</h3><p>BTC Core 开发人员经常在形式和功能上将自己呈现为比特币的权威声音。</p>
+<p>他们不是。</p>
+<p>BTC Core 客户端只是比特币一个版本的参考实现，而不是最终的技术规范。其他客户端，例如 BTC、BCH 或 BSV 中使用的客户端，都是对比特币协议的有效解释，至少在它们通过中本聪描述的当比特币链彼此不一致时的孤儿过程被淘汰之前是这样。</p>
+<p>BSV 的存在专门是为了测试并希望继续证明比特币的正确性，而核心开发者和小区块拥护者已经发誓他们已经证明了他们的错误。</p>
+<p>随着争论的继续，重要的是要记住比特币的潜力还远未完全实现。 Core 开发人员可能已经放弃了 SPV，但这并不意味着这个概念已经消亡。它在 BSV 中充满活力，人们正在积极追求真正可扩展、高效且易于访问的比特币愿景。最终，问题不是谁来决定比特币是什么；而是谁来决定比特币是什么。这是关于谁能证明比特币的能力。</p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+<!-- 上一篇 -->
+    
+        <a class="extend prev post-prev" href="/2024/08/22/next-digital-revolution-with-ipv6-blockchain/">上一篇</a>
+    
+<!- 最后更新 ->
+    <p>上次更新 2024-09-12</p>
+<!-- 下一篇 -->
+    
+        <a class="extend next post-next" href="/2024/07/26/london-blockchain-conference-2024/">下一篇</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="copyright">
+        <span>
+				© 2024 Mucc.cc
+        </span>
+    </div>
+</div>
+    </div>
+</body>
+</html>
