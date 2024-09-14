@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mucc.cc/2024/09/11/unlocking-1satordinals-with-the-power-of-the-bsv-blockchain/</loc>
+    
+    <lastmod>2024-09-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mucc.cc/2024/09/05/web3-for-a-better-world/</loc>
+    
+    <lastmod>2024-09-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mucc.cc/2024/09/14/guo-chan-ai-da-mo-xing/</loc>
+    
+    <lastmod>2024-09-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mucc.cc/2024/09/13/crypto-after-all-these-years-why-keeps-us-hooked/</loc>
+    
+    <lastmod>2024-09-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mucc.cc/2024/08/31/teaching-during-the-rise-of-ai-and-the-end-of-reading/</loc>
     
     <lastmod>2024-09-13</lastmod>
@@ -2299,7 +2335,7 @@
 
   <url>
     <loc>https://mucc.cc/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2309,14 +2345,14 @@
   
   <url>
     <loc>https://mucc.cc/categories/%E6%AF%94%E7%89%B9%E5%B8%81/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mucc.cc/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
